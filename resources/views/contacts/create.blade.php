@@ -25,7 +25,7 @@
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 600px; /* Εμφάνιση container με περιορισμένο πλάτος */
+            max-width: 600px; 
         }
 
         h1 {
