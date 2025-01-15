@@ -89,12 +89,13 @@
     <div>
         @if($contacts->isEmpty())
             <p class="error-message">
-                <span class="error-icon">❌</span>Δεν βρέθηκαν επαφές με αυτό το όνομα.
+                <span class="error-icon">❌</span>Δεν βρέθηκαν επαφές με αυτό το Επίθετο.
             </p>
         @else
             <table>
                 <thead>
                     <tr>
+                        <th>Επίθετο</th>
                         <th>Όνομα</th>
                         <th>Τηλέφωνο</th>
                         <th>Email</th>
@@ -104,6 +105,7 @@
                 <tbody>
                     @foreach ($contacts as $contact)
                         <tr>
+                            <td>{{ $contact->surname }}</td>
                             <td>{{ $contact->name }}</td>
                             <td>{{ $contact->phone }}</td>
                             <td>{{ $contact->email }}</td>

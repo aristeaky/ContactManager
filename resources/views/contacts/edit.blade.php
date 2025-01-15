@@ -83,6 +83,11 @@
     <form action="{{ route('contacts.update', $contact->id) }}" method="POST">
         @csrf
         @method('PUT')
+        <div>
+            <label for="surname">Επίθετο</label>
+            <input type="text" name="surname" id="surname" required value="{{ old('surname', $contact->surname) }}">
+            @error('surname') <span style="color:red;">{{ $message }}</span> @enderror
+        </div>
 
         <div>
             <label for="name">Όνομα</label>

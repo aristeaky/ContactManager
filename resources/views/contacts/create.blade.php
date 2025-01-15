@@ -83,6 +83,11 @@
         <form action="{{ route('contacts.store') }}" method="POST">
             @csrf
             <div>
+                <label for="surname">Επίθετο</label>
+                <input type="text" name="surname" id="surname" required value="{{ old('surname') }}">
+                @error('surname') <span style="color:red;">{{ $message }}</span> @enderror
+            </div>
+            <div>
                 <label for="name">Όνομα</label>
                 <input type="text" name="name" id="name" required value="{{ old('name') }}">
                 @error('name') <span style="color:red;">{{ $message }}</span> @enderror

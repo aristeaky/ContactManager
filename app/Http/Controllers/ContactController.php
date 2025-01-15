@@ -14,7 +14,7 @@ class ContactController extends Controller
     public function showAll()
 {
     $contacts = Contact::all();
-    $contacts=Contact::orderBy("name","asc")->get();
+    $contacts=Contact::orderBy("surname","asc")->get();
     return view('contacts.index', compact('contacts'));
 }
 
@@ -23,10 +23,10 @@ public function search(Request $request)
     $query = $request->input('query');
     if (empty($query)) {
         $contacts = [];
-        $message = 'Παρακαλώ εισάγετε όνομα για αναζήτηση.';
+        $message = 'Παρακαλώ εισάγετε επίθετο για αναζήτηση.';
         return view('contacts.options', compact('contacts', 'message'));
     }
-    $contacts = Contact::where('name', 'LIKE', '%' . $query . '%')->get();
+    $contacts = Contact::where('surname', 'LIKE', '%' . $query . '%')->get();
     return view('contacts.search', compact('contacts'));
 }
 
@@ -36,11 +36,13 @@ public function search(Request $request)
 
     public function store(Request $request){
         $request->validate([
+            "surname"=>"required",
             "name"=>"required",
             "phone"=>"required",
             "email"=>"nullable|email"
         ]);
     Contact::create([
+        "surname"=>$request->surname,
         "name"=>$request->name,
         "phone"=>$request->phone,
         "email"=>$request->email
@@ -54,12 +56,14 @@ public function search(Request $request)
     }
     public function update(Request $request,$id){
         $request->validate([
+            "surname"=>"required",
             "name"=>"required",
             "phone"=>"required",
             "email"=>"nullable|email"
         ]);
         $contact=Contact::findOrFail($id);
         $contact->update([
+            "surname"=>$request->surname,
             "name"=>$request->name,
             "phone"=>$request->phone,
             "email"=>$request->email
