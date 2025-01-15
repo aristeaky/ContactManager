@@ -26,7 +26,15 @@ public function search(Request $request)
         $message = 'Παρακαλώ εισάγετε επίθετο για αναζήτηση.';
         return view('contacts.options', compact('contacts', 'message'));
     }
-    $contacts = Contact::where('surname', 'LIKE', '%' . $query . '%')->get();
+    $queryParts = explode(' ', $query);
+    $contacts = Contact::where(function ($q) use ($queryParts) {
+        foreach ($queryParts as $part) {
+            $q->where(function ($subQuery) use ($part) {
+                $subQuery->where('surname', 'LIKE', '%' . $part . '%')
+                         ->orWhere('name', 'LIKE', '%' . $part . '%');
+            });
+        }
+    })->get();
     return view('contacts.search', compact('contacts'));
 }
 

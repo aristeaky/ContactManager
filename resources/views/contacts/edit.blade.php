@@ -26,7 +26,7 @@
             width: 100%;
             max-width: 700px;
             height: 100%;
-            max-height: 400px; 
+            max-height: 600px; 
         }
 
         h1 {
