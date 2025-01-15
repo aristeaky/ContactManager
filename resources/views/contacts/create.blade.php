@@ -1,4 +1,4 @@
-<!-- resources/views/contacts/create.blade.php -->
+
 
 <!DOCTYPE html>
 <html lang="el">
