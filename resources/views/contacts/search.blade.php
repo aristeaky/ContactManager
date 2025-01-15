@@ -123,7 +123,7 @@
             </table>
         @endif
     </div>
-    <div class="back-button"></div>
+    <div class="back-button">
     <a href="{{ route('contacts.index') }}">Επιστροφή</a>
     </div>
     </div>
