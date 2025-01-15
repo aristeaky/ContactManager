@@ -1,3 +1,5 @@
+// i anazitisi na ginete me vasi eite epitheto eite onoma eite kai ta duo 
+// na ftiaksw stin epeksergasia ta buttons
 <!DOCTYPE html>
 <html>
 <head>
