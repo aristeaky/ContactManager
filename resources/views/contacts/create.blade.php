@@ -95,7 +95,7 @@
 
             <div>
                 <label for="phone">Τηλέφωνο</label>
-                <input type="text" name="phone" id="phone" required value="{{ old('phone') }}">
+                <input type="number" name="phone" id="phone" required value="{{ old('phone') }}">
                 @error('phone') <span style="color:red;">{{ $message }}</span> @enderror
             </div>
 

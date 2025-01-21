@@ -46,7 +46,7 @@ public function search(Request $request)
         $request->validate([
             "surname"=>"required",
             "name"=>"required",
-            "phone"=>"required",
+            "phone"=>"required|numeric|digits_between:9,15",
             "email"=>"nullable|email"
         ]);
     Contact::create([
@@ -66,7 +66,7 @@ public function search(Request $request)
         $request->validate([
             "surname"=>"required",
             "name"=>"required",
-            "phone"=>"required",
+            "phone"=>"required|numeric|digits_between:9,15",
             "email"=>"nullable|email"
         ]);
         $contact=Contact::findOrFail($id);
